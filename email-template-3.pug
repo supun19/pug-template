@@ -200,30 +200,32 @@ html(lang='en')
           td(style='text-align: left; padding: 50px 20px; font-weight: 700;') Monthly Historical Payouts
         tr 
           td(style='padding: 0 20px;')
-            div
-              canvas#myChart
-            script.
-              const ctx = document.getElementById('myChart');
+            div(style='padding: 20px; background-color: #E4E4E4; border-radius: 12px;')
+              div(style='text-align: left; padding: 0 0 20px 0; font-weight: 700;') Monthly Payout Trend
+              div(style='padding: 20px; background-color: #FFF; border-radius: 12px;')
+                canvas#myChart
+              script.
+                const ctx = document.getElementById('myChart');
 
-              new Chart(ctx, {
-                type: 'line',
-                data: {
-                  labels: ['Jun 23', 'Jul 23', 'Aug 23', 'Sep 23', 'Oct 23', 'Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24', 'Apr 24', 'May 24'],
-                  datasets: [{
-                    label: 'Partner Credits',
-                    data: [0,0,0,0,0,0,0,0,0,0,0,200],
-                    borderWidth: 3,
-                    tension: 0.45 
-                  }]
-                },
-                options: {
-                  scales: {
-                    y: {
-                      beginAtZero: true
+                new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                    labels: ['Jun 23', 'Jul 23', 'Aug 23', 'Sep 23', 'Oct 23', 'Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24', 'Apr 24', 'May 24'],
+                    datasets: [{
+                      label: 'Partner Credits',
+                      data: [0,0,0,0,0,0,0,0,0,0,0,200],
+                      borderWidth: 3,
+                      tension: 0.45,
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
                     }
                   }
-                }
-              });
+                });
         tr 
           td(style='text-align: left; padding:80px')
             p We believe feedback is a gift! Do you have questions, comments or suggestions? Please reach out to colby@agentsautomated.com !
