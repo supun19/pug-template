@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  //- var calendar = new FullCalendar.Calendar(calendarEl, {
+  //-   initialView: 'dayGridMonth'
+  //- });
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    //- dayCellContent: function(arg) {
+    //-   // Customize specific date cells
+    //-   var date = arg.date.toISOString().split('T')[0]; // Get date in YYYY-MM-DD format
+    //-   if (date === '2024-06-07') { // Example date
+    //-     arg.dayNumberText = ''; // Remove the default day number text
+    //-     arg.el.innerHTML = '<div style="position: relative;"><span style="position: absolute; top: 0; left: 0;">5</span><button onclick="alert(\'Button clicked!\')">Click Me</button></div>';
+    //-   }
+    //- }
+    headerToolbar: {
+      left: 'title',
+      center: '',
+      right: ''
+    },
+    events: [
+      {
+        title: 'Business Lunch',
+        start: '2024-06-03T13:00:00',
+        constraint: 'businessHours'
+      },
+      {
+        title: 'Meeting',
+        start: '2024-06-13T11:00:00',
+        constraint: 'availableForMeeting', // defined below
+        color: '#257e4a'
+      },
+      {
+        title: 'Conference',
+        start: '2024-06-18',
+        end: '2024-06-20'
+      },
+      {
+        title: 'Party',
+        start: '2024-06-29T20:00:00'
+      },
+
+      // areas where "Meeting" must be dropped
+      {
+        groupId: 'availableForMeeting',
+        start: '2024-06-11T10:00:00',
+        end: '2024-06-11T16:00:00',
+        display: 'background'
+      },
+      {
+        groupId: 'availableForMeeting',
+        start: '2024-06-13T10:00:00',
+        end: '2024-06-13T16:00:00',
+        display: 'background'
+      },
+
+      // red areas where no events can be dropped
+      {
+        start: '2024-06-24',
+        end: '2024-06-28',
+        overlap: false,
+        display: 'background',
+        color: '#ff9f89'
+      },
+      {
+        start: '2024-06-06',
+        end: '2024-06-08',
+        overlap: false,
+        display: 'background',
+        color: '#ff9f89'
+      }
+    ]
+    
+  });
+  calendar.render();
+})</script><title>RedigoPA App Invitation</title><style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  border-spacing: 0;
+  border-radius: 12px;
+  color: #333;
+  overflow: hidden;
+}
+td {
+  padding: 0;
+  text-align: center;
+}
+.header {
+  padding: 20px;
+}
+.content {
+  padding: 20px 40px;
+}
+p{
+  font-size: 18px;
+  margin: 0;
+  text-align : left;
+}
+.data-table{
+  width: 100%; 
+  border-radius: 12px;
+}
+.data-table th, .data-table td {
+  padding: 16px;
+}
+.data-table th{
+  border-bottom: 1px solid #333;
+  
+}
+.data-table td{
+  border-bottom: 1px solid #E4E4E4;
+  font-weight: 600;
+}
+.partner-credits-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0;
+  font-weight: 600
+}
+.partner-credits-table th, .partner-credits-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+.partner-credits-table th {
+  background-color: #000;
+  color: #fff;
+}
+.partner-credits-table td {
+  background-color: #fff;
+  color: #000;
+}
+.partner-credits-table tbody tr td {
+  text-align: center;
+}
+.partner-credits-table tbody tr td:nth-child(1) {
+  text-align: left;
+  background-color: #000;
+  color: #fff;
+}</style></head><body><table role="presentation" style="background-color: #ffffff; max-width: 800px; margin: 0 auto;"><thead><tr><td><table> <tr> <td class="header"><img src="https://i.imgur.com/SgaAwWy.png" alt="Agent Automated logo" height="100" width="150"></td><td class="header"> <h2>Partner Payments</h2></td></tr></table></td></tr></thead><tbody> <tr> <td style="text-align: left; padding: 0 40px">Hi Nicola,</td></tr><tr> <td class="content"><p>We are thrilled to have you as a partner, and are so thrilled, we will remind you of our feelings every single month! Find your monthly partner credits below. As always, please reach out as needed!</p><br><p>Sicerely, The Agents Automated Team</p></td></tr><tr> <td style="text-align: left; padding: 0 20px; font-weight: 700">Your fee income is sent to: [affiliate email] from our 'tremednous'. Fees lag one month from what you see below.        </td></tr><tr><td style="text-align: left; padding: 50px 20px; font-weight: 700;">[Month] credited signups.   </td></tr><tr><td style="padding: 0 20px;"><table class="partner-credits-table"><thead><tr><th>Customers Credited In:</th><th>Number of Signups</th><th>Partner Credits</th></tr></thead><tbody><tr><td>Month 1 (trial period)</td><td>10</td><td>-</td></tr><tr><td>Month 2+ (partner credits!)</td><td>100</td><td>$2,000   </td></tr></tbody></table></td></tr><tr><td style="text-align: left; padding: 50px 20px; font-weight: 700;">Monthly Historical Payouts</td></tr><tr> <td id="chart" style="padding: 20px 40px"> </td></tr><tr> <td style="text-align: left; padding:80px"><p>We believe feedback is a gift! Do you have questions, comments or suggestions? Please reach out to colby@agentsautomated.com !</p><br><p>-Sicerely, Colby, Founder of Agents Automated Team</p></td></tr></tbody></table></body></html>

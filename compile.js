@@ -4,7 +4,7 @@ const pug = require('pug');
 const fs = require('fs');
 
 // Compile the Pug template to HTML
-const compiledFunction = pug.compileFile('email-template-1.pug');
+const compiledFunction = pug.compileFile('email-template-3.pug');
 
 // Write the HTML to a file
-fs.writeFileSync('email-template-1.html', compiledFunction());
+fs.writeFileSync('email-template-3.html', compiledFunction());
