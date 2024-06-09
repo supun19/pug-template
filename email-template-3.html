@@ -155,12 +155,26 @@ new Chart(ctx, {
       data: [0,0,0,0,0,0,0,0,0,0,0,200],
       borderWidth: 3,
       tension: 0.45,
+      
     }]
   },
   options: {
+    plugins: {
+      legend: {
+        display: false // This hides the legend
+      }
+    },
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        grid: {
+          display: false // This hides the y-axis grid lines
+        }
+      },
+      x: {
+        grid: {
+          display: false // This hides the x-axis grid lines
+        }
       }
     }
   }
