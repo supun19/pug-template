@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendarEl = document.getElementById("calendar");
+        var serializedEvents = [
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-06-25T03:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-19/template-image-7-4f677b2b2a05b6c8/ac77480c-b247-48be-bcd7-87e8c95c38c2",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-06-24T01:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-19/template-image-6-cd677b2b2a0dac58/0fc1daa4-6844-4d3f-b6a6-914f09d7b3ec",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-22T17:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-19/template-image-2-3d277b2b2a823320/e43c6e53-f415-419d-a19d-ca22643229e9",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-21T15:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-19/template-image-1-1d277b2b2a8bf628/149b164a-db6d-4beb-a1ab-d0ae6a708f1e",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-20T21:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-19/template-image-4-41c77b2b2a06bdc6/babcf9bd-092a-4e97-bea4-059116af1c1a",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-19T19:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-19/template-image-3-d3b77b2b2a074d0e/febe2d60-2b93-4dc9-8d38-215c8093315d",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-18T03:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-13/template-image-7-4f677b2b2a05b6c8/2f77d4e2-05a1-48f6-aee2-0d987b01998b",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-17T01:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-13/template-image-6-cd677b2b2a0dac58/7009fac3-7e5b-4080-9957-9009a1a7751e",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-15T17:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-13/template-image-2-3d277b2b2a823320/2ee069a3-422f-4e0b-8c5a-ca72c5228bad",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-14T15:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-13/template-image-1-1d277b2b2a8bf628/500aaa26-e099-49c7-8464-5173ae18c62f",
+          },
+          {
+            icon: "https://i.imgur.com/7F6oaQb.png",
+            start: "2024-03-13T21:00:00Z",
+            postImageUrl:
+              "https://realtor-storage233045-dev.s3.us-east-2.amazonaws.com/opm@yopmail.com/2024-03-13/template-image-4-41c77b2b2a06bdc6/8fd8b4de-8861-4f13-846b-710da7037bbf",
+          },
+        ];
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          initialDate: "2024-03-01",
+          headerToolbar: {
+            left: "title",
+            center: "",
+            right: "",
+          },
+          events: serializedEvents,
+          eventContent: function (arg) {
+            var event = arg.event;
+            var startTime = event.start.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            });
+            var endTime = event.end
+              ? event.end.toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })
+              : "";
+
+            var content = document.createElement("div");
+            content.classList.add("custom-event");
+
+            var icon = document.createElement("img");
+            icon.src = event.extendedProps.icon;
+            icon.classList.add("event-icon");
+
+            var title = document.createElement("div");
+            title.innerHTML = event.title;
+            title.classList.add("event-title");
+
+            var time = document.createElement("div");
+            time.innerHTML = startTime + (endTime ? " - " + endTime : "");
+            time.classList.add("event-time");
+
+            var logo = document.createElement("img");
+            logo.src = event.extendedProps.postImageUrl;
+            logo.classList.add("event-logo");
+
+            content.appendChild(icon);
+            content.appendChild(title);
+            content.appendChild(time);
+            content.appendChild(logo);
+
+            return { domNodes: [content] };
+          },
+        });
+        calendar.render();
+      });
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      #calendar {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .custom-event {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 4px;
+      }
+      .event-icon {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .event-title {
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+      .event-time {
+        font-size: 12px;
+        font-weight: bold;
+        color: #555;
+        flex-shrink: 0;
+      }
+      .event-logo {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      role="presentation"
+      style="background-color: #ffffff; max-width: 800px; margin: 0 auto"
+    >
+      <thead>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td class="header">
+                  <img
+                    src="https://i.imgur.com/SgaAwWy.png"
+                    alt="Agent Automated logo"
+                    height="100"
+                    width="150"
+                  />
+                </td>
+                <td class="header"><h2>Monthly Content Calendar</h2></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left; padding: 0 40px">Hi Nicola,</td>
+        </tr>
+        <tr>
+          <td class="content">
+            <p>
+              Find a calendar with your automated posting schedule for the
+              month! As always, go to your account here to adjust times,
+              captions, or anything else. We are thankful to serve you and your
+              business and reach out with any comments or questions!
+            </p>
+            <br />
+            <p>Sicerely, The Agents Automated Team</p>
+          </td>
+        </tr>
+        <tr>
+          <td id="calendar" style="padding: 20px 40px"></td>
+        </tr>
+        <tr>
+          <td style="text-align: left; padding: 80px">
+            <p>
+              We believe feedback is a gift! Do you have questions, comments or
+              suggestions? Please reach out to colby@agentsautomated.com !
+            </p>
+            <br />
+            <p>-Sicerely, Colby, Founder of Agents Automated Team</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
