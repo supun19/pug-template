@@ -4,7 +4,8 @@
     "pug": "^3.0.3"
   },
   "scripts": {
-    "dev": "nodemon compile.js -e js,pug"
+    "dev": "nodemon compile.js -e js,pug",
+    "dev2": "nodemon compile2.js -e js,pug"
   },
   "dependencies": {
     "fullcalendar": "^6.1.14"
