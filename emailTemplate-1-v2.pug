@@ -1,0 +1,346 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Monthly Performance
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 0;
+        border-spacing: 0;
+        border-radius: 12px;
+        color: #333;
+      }
+      td {
+        padding: 0;
+        text-align: center;
+      }
+      .header {
+        padding: 20px;
+      }
+      .content {
+        padding: 20px 40px;
+      }
+      p{
+        font-size: 18px;
+        margin: 0;
+        text-align : left;
+      }
+      .data-table{
+        width: 100%; 
+        border-radius: 12px;
+      }
+      .data-table 
+      th, .data-table td {
+        padding: 8px;
+      }
+      .data-table th{
+        background-color: #000;
+        color: #fff;
+      }
+      .data-table td{
+        font-weight: 600;
+      }
+  body
+    table(role='presentation', style='background-color: #ffffff; max-width: 800px; margin: 0 auto;')
+      thead
+        tr
+          td
+            table 
+              tr 
+                td.header
+                  img(src='https://i.imgur.com/SgaAwWy.png', alt='Agent Automated logo' height='100' width='150')
+                td.header  
+                  h2 Monthly Performance
+      tbody
+        tr 
+          td(style='text-align: left; padding: 0 40px') Hi #{name},
+        tr 
+          td.content
+            p Find your monthly social analytics below. We are here to assist in growing your social media presense as the local online expert, and grow your business too! Log into your account here to view more granular metrics and as always, reach out with any comments or questions! 
+            br
+            p Sicerely, The Agents Automated Team
+        tr
+          td(style='text-align: left; padding: 0 80px')
+            h3 #{formattedMonthDate} Top Posts! 
+        tr
+          td(style='padding: 0 80px 40px')
+            table.data-table
+                thead
+                  tr
+                    th Top Posts
+                    th Post
+                    th Platform
+                    th Impressions
+                    th Reach
+                tbody
+                  each post,index in impressionCountOfPosts
+                    tr
+                      td 
+                        if index === 0
+                          | 1st
+                        else if index === 1
+                          | 2nd
+                        else if index === 2
+                          | 3rd
+                        else if index === 3
+                          | 4th
+                      td 100
+                      td Facebook
+                      td #{post.totalEngagement}
+                      td #{post.totalImpressions}
+            
+        tr
+          td(style='text-align: left; padding: 0 80px')
+            h3 #{formattedMonthDate} Account Growth! 
+        tr
+          td(style='padding: 0 80px 80px')
+            table.data-table
+                thead
+                  tr
+                    th #{formattedMonthDate} (month)
+                    th Followers
+                    th Impressions
+                    th Reach
+                    th Engagement Rate
+                tbody
+                  tr
+                    td(style='background-color: #000; color: #fff') FB
+                    td 300
+                    td #{growOfPost.facebook.impressionFacebookGrowth}
+                    td 75
+                    td #{growOfPost.facebook.postCountFacebookGrowth}
+                  tr
+                    td(style='background-color: #000; color: #fff') Instagram
+                    td 100
+                    td #{growOfPost.instagram.impressionInstragrameGrowth}
+                    td 100
+                    td #{growOfPost.instagram.postCountInstragrameGrowth}
+                  tr
+                    td(style='background-color: #000; color: #fff') LinkedIn
+                    td 200
+                    td #{growOfPost.linkdin.impressionLinkdinGrowth}
+                    td 24
+                    td #{growOfPost.linkdin.postCountLinkdinGrowth}
+
+        tr
+          td(style='text-align: left; padding: 0 80px')
+            h3 [Jan-Dec] Account Growth!              
+
+        tr 
+          td(style='padding: 0 40px;')
+            div(style='padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px')
+              div(style='text-align: center; padding: 0 0 20px 0; font-weight: 700;') #{growthFactor1}, Prior 12 Months
+              div(style='padding: 0; background-color: #FFF; border-radius: 12px;')
+                canvas#myChart
+              script(src="https://cdn.jsdelivr.net/npm/chart.js")
+              script.
+                const ctx = document.getElementById('myChart');
+
+                new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                    labels: !{JSON.stringify(chart1Label)},
+                    datasets: [
+                      {
+                        label: 'Facebook',
+                        data: !{JSON.stringify(chart1data1)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },
+                      {
+                        label: 'Instagram',
+                        data: !{JSON.stringify(chart1data2)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },                      
+                    ]
+                  },
+                  options: {
+                    plugins: {
+                      legend: {
+                        display: true, // This hides the legend
+                        position: 'bottom',
+                      }
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        grid: {
+                          display: true // This hides the y-axis grid lines
+                        }
+                      },
+                      x: {
+                        grid: {
+                          display: false // This hides the x-axis grid lines
+                        }
+                      }
+                    }
+                  }
+                });
+        tr 
+          td(style='padding: 0 40px;')
+            div(style='padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px')
+              div(style='text-align: center; padding: 0 0 20px 0; font-weight: 700;') #{growthFactor2}, Prior 12 Months
+              div(style='padding: 0; background-color: #FFF; border-radius: 12px;')
+                canvas#myChart2
+              script(src="https://cdn.jsdelivr.net/npm/chart.js")
+              script.
+                const ctx2 = document.getElementById('myChart2');
+
+                new Chart(ctx2, {
+                  type: 'line',
+                  data: {
+                    labels: !{JSON.stringify(chart2Label)},
+                    datasets: [
+                      {
+                        label: 'Facebook',
+                        data: !{JSON.stringify(chart2data1)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },
+                      {
+                        label: 'Instagram',
+                        data: !{JSON.stringify(chart2data2)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },                      
+                    ]
+                  },
+                  options: {
+                    plugins: {
+                      legend: {
+                        display: true, // This hides the legend
+                        position: 'bottom',
+                      }
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        grid: {
+                          display: true // This hides the y-axis grid lines
+                        }
+                      },
+                      x: {
+                        grid: {
+                          display: false // This hides the x-axis grid lines
+                        }
+                      }
+                    }
+                  }
+                });
+        tr 
+          td(style='padding: 0 40px;')
+            div(style='padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px')
+              div(style='text-align: center; padding: 0 0 20px 0; font-weight: 700;') #{growthFactor3}, Prior 12 Months
+              div(style='padding: 0; background-color: #FFF; border-radius: 12px;')
+                canvas#myChart3
+              script(src="https://cdn.jsdelivr.net/npm/chart.js")
+              script.
+                const ctx3 = document.getElementById('myChart3');
+
+                new Chart(ctx3, {
+                  type: 'line',
+                  data: {
+                    labels: !{JSON.stringify(chart3Label)},
+                    datasets: [
+                      {
+                        label: 'Facebook',
+                        data: !{JSON.stringify(chart3data1)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },
+                      {
+                        label: 'Instagram',
+                        data: !{JSON.stringify(chart3data2)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },                      
+                    ]
+                  },
+                  options: {
+                    plugins: {
+                      legend: {
+                        display: true, // This hides the legend
+                        position: 'bottom',
+                      }
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        grid: {
+                          display: true // This hides the y-axis grid lines
+                        }
+                      },
+                      x: {
+                        grid: {
+                          display: false // This hides the x-axis grid lines
+                        }
+                      }
+                    }
+                  }
+                });
+        tr 
+          td(style='padding: 0 40px;')
+            div(style='padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px')
+              div(style='text-align: center; padding: 0 0 20px 0; font-weight: 700;') #{growthFactor4}, Prior 12 Months
+              div(style='padding: 0; background-color: #FFF; border-radius: 12px;')
+                canvas#myChart4
+              script(src="https://cdn.jsdelivr.net/npm/chart.js")
+              script.
+                const ctx4 = document.getElementById('myChart4');
+
+                new Chart(ctx4, {
+                  type: 'line',
+                  data: {
+                    labels: !{JSON.stringify(chart4Label)},
+                    datasets: [
+                      {
+                        label: 'Facebook',
+                        data: !{JSON.stringify(chart4data1)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },
+                      {
+                        label: 'Instagram',
+                        data: !{JSON.stringify(chart4data2)},
+                        borderWidth: 3,
+                        tension: 0.45,
+                      },                      
+                    ]
+                  },
+                  options: {
+                    plugins: {
+                      legend: {
+                        display: true, // This hides the legend
+                        position: 'bottom',
+                      }
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        grid: {
+                          display: true // This hides the y-axis grid lines
+                        }
+                      },
+                      x: {
+                        grid: {
+                          display: false // This hides the x-axis grid lines
+                        }
+                      }
+                    }
+                  }
+                });
+        tr 
+          td(style='text-align: left; padding: 0 80px 80px')
+            p We believe feedback is a gift! Do you have questions, comments or suggestions? Please reach out to colby@agentsautomated.com !
+            br
+            p -Sicerely, Colby, Founder of Agents Automated Team

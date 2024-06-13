@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Monthly Performance</title><style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  border-spacing: 0;
+  border-radius: 12px;
+  color: #333;
+}
+td {
+  padding: 0;
+  text-align: center;
+}
+.header {
+  padding: 20px;
+}
+.content {
+  padding: 20px 40px;
+}
+p{
+  font-size: 18px;
+  margin: 0;
+  text-align : left;
+}
+.data-table{
+  width: 100%; 
+  border-radius: 12px;
+}
+.data-table 
+th, .data-table td {
+  padding: 8px;
+}
+.data-table th{
+  background-color: #000;
+  color: #fff;
+}
+.data-table td{
+  font-weight: 600;
+}</style></head><body><table role="presentation" style="background-color: #ffffff; max-width: 800px; margin: 0 auto;"><thead><tr><td><table> <tr> <td class="header"><img src="https://i.imgur.com/SgaAwWy.png" alt="Agent Automated logo" height="100" width="150"></td><td class="header"> <h2>Monthly Performance</h2></td></tr></table></td></tr></thead><tbody><tr> <td style="text-align: left; padding: 0 40px">Hi IoT Project Factory,</td></tr><tr> <td class="content"><p>Find your monthly social analytics below. We are here to assist in growing your social media presense as the local online expert, and grow your business too! Log into your account here to view more granular metrics and as always, reach out with any comments or questions! </p><br><p>Sicerely, The Agents Automated Team</p></td></tr><tr><td style="text-align: left; padding: 0 80px"><h3>June 2024 Top Posts! </h3></td></tr><tr><td style="padding: 0 80px 40px"><table class="data-table"><thead><tr><th>Top Posts</th><th>Post</th><th>Platform</th><th>Impressions</th><th>Reach</th></tr></thead><tbody><tr><td> 1st</td><td>100</td><td>Facebook</td><td>0</td><td>3</td></tr></tbody></table></td></tr><tr><td style="text-align: left; padding: 0 80px"><h3>June 2024 Account Growth! </h3></td></tr><tr><td style="padding: 0 80px 80px"><table class="data-table"><thead><tr><th>June 2024 (month)</th><th>Followers</th><th>Impressions</th><th>Reach</th><th>Engagement Rate</th></tr></thead><tbody><tr><td style="background-color: #000; color: #fff">FB</td><td>300</td><td>Set Up!</td><td>75</td><td>Set Up!</td></tr><tr><td style="background-color: #000; color: #fff">Instagram</td><td>100</td><td>3</td><td>100</td><td>1</td></tr><tr><td style="background-color: #000; color: #fff">LinkedIn</td><td>200</td><td>Set Up!</td><td>24</td><td>Set Up!</td></tr></tbody></table></td></tr><tr><td style="text-align: left; padding: 0 80px"><h3>[Jan-Dec] Account Growth!              </h3></td></tr><tr> <td style="padding: 0 40px;"><div style="padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px"><div style="text-align: center; padding: 0 0 20px 0; font-weight: 700;">Followers, Prior 12 Months</div><div style="padding: 0; background-color: #FFF; border-radius: 12px;"><canvas id="myChart"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script>const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets: [
+      {
+        label: 'Facebook',
+        data: [100,110,120,130,140,150,160,170,180,190,200,210],
+        borderWidth: 3,
+        tension: 0.45,
+      },
+      {
+        label: 'Instagram',
+        data: [200,210,220,230,240,250,260,270,280,290,300,310],
+        borderWidth: 3,
+        tension: 0.45,
+      },                      
+    ]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: true, // This hides the legend
+        position: 'bottom',
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: true // This hides the y-axis grid lines
+        }
+      },
+      x: {
+        grid: {
+          display: false // This hides the x-axis grid lines
+        }
+      }
+    }
+  }
+});</script></div></td></tr><tr> <td style="padding: 0 40px;"><div style="padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px"><div style="text-align: center; padding: 0 0 20px 0; font-weight: 700;">Impressions, Prior 12 Months</div><div style="padding: 0; background-color: #FFF; border-radius: 12px;"><canvas id="myChart2"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script>const ctx2 = document.getElementById('myChart2');
+
+new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets: [
+      {
+        label: 'Facebook',
+        data: [1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100],
+        borderWidth: 3,
+        tension: 0.45,
+      },
+      {
+        label: 'Instagram',
+        data: [2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100],
+        borderWidth: 3,
+        tension: 0.45,
+      },                      
+    ]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: true, // This hides the legend
+        position: 'bottom',
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: true // This hides the y-axis grid lines
+        }
+      },
+      x: {
+        grid: {
+          display: false // This hides the x-axis grid lines
+        }
+      }
+    }
+  }
+});</script></div></td></tr><tr> <td style="padding: 0 40px;"><div style="padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px"><div style="text-align: center; padding: 0 0 20px 0; font-weight: 700;">Reach, Prior 12 Months</div><div style="padding: 0; background-color: #FFF; border-radius: 12px;"><canvas id="myChart3"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script>const ctx3 = document.getElementById('myChart3');
+
+new Chart(ctx3, {
+  type: 'line',
+  data: {
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets: [
+      {
+        label: 'Facebook',
+        data: [250,275,300,325,350,375,400,425,450,475,500,525],
+        borderWidth: 3,
+        tension: 0.45,
+      },
+      {
+        label: 'Instagram',
+        data: [350,375,400,425,450,475,500,525,550,575,600,625],
+        borderWidth: 3,
+        tension: 0.45,
+      },                      
+    ]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: true, // This hides the legend
+        position: 'bottom',
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: true // This hides the y-axis grid lines
+        }
+      },
+      x: {
+        grid: {
+          display: false // This hides the x-axis grid lines
+        }
+      }
+    }
+  }
+});</script></div></td></tr><tr> <td style="padding: 0 40px;"><div style="padding: 20px 0 10px 0; border: 1px solid #ADAEB3; border-left: none; border-right: none; margin-bottom: 40px"><div style="text-align: center; padding: 0 0 20px 0; font-weight: 700;">Engagement Rate, Prior 12 Months</div><div style="padding: 0; background-color: #FFF; border-radius: 12px;"><canvas id="myChart4"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script>const ctx4 = document.getElementById('myChart4');
+
+new Chart(ctx4, {
+  type: 'line',
+  data: {
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets: [
+      {
+        label: 'Facebook',
+        data: [100,110,120,130,140,150,160,170,180,190,200,210],
+        borderWidth: 3,
+        tension: 0.45,
+      },
+      {
+        label: 'Instagram',
+        data: [200,210,220,230,240,250,260,270,280,290,300,310],
+        borderWidth: 3,
+        tension: 0.45,
+      },                      
+    ]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: true, // This hides the legend
+        position: 'bottom',
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: true // This hides the y-axis grid lines
+        }
+      },
+      x: {
+        grid: {
+          display: false // This hides the x-axis grid lines
+        }
+      }
+    }
+  }
+});</script></div></td></tr><tr> <td style="text-align: left; padding: 0 80px 80px"><p>We believe feedback is a gift! Do you have questions, comments or suggestions? Please reach out to colby@agentsautomated.com !</p><br><p>-Sicerely, Colby, Founder of Agents Automated Team</p></td></tr></tbody></table></body></html>
