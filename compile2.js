@@ -53,7 +53,7 @@ const param = {
 
 
 // Compile the Pug template to HTML
-const compiledFunction = pug.compileFile("emailTemplate-1-v2.pug");
+const compiledFunction = pug.compileFile("email-template-1.pug");
 
 // Write the HTML to a file
-fs.writeFileSync("emailTemplate-1-v2.html", compiledFunction(param));
+fs.writeFileSync("email-template-1.html", compiledFunction(param));
