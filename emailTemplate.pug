@@ -3,12 +3,13 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Monthly Performance
+    title Monthly Performance Report!'
     style.
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        background-color: #f2f2f2;
       }
       table {
         width: 100%;
@@ -33,7 +34,7 @@ html(lang='en')
         margin: 0;
         text-align : left;
       }
-      .data-table{
+      .data-table, .performance-table{
         width: 100%; 
         border-radius: 12px;
       }
@@ -48,6 +49,17 @@ html(lang='en')
       .data-table td{
         font-weight: 600;
       }
+      .performance-table tr{
+        border-top: 1px solid #7A8998;
+      }
+      .performance-table 
+      th, .performance-table td {
+        padding: 12px 8px;
+        border-right: 1px solid #7A8998;
+      }
+      .performance-table td{
+        color: #7A8998;
+      }
   body(style='background-color: #EDEDED;')
     table(role='presentation', style='background-color: #FFF; max-width: 800px; margin: 0 auto;')
       thead
@@ -55,14 +67,19 @@ html(lang='en')
           td.header
             img(src='https://i.imgur.com/gnl9IDR.png', alt='Agent Automated logo' height='100' width='150')
         tr
-          td.header(style='text-align: center; padding: 0 40px 40px')  
-            h2 Monthly Performance
+          td.header(style='text-align: center; padding: 0 40px 40px') 
+            h2 Monthly Performance Report!
       tbody
         tr 
-          td(style='text-align: left; padding: 0 40px; font-size: 18px') Hi #{name},
+          td(style='text-align: left; padding: 0 40px') 
+            span(style='font-size: 1.2em') Hi #{name}
+            |,
         tr 
           td.content
-            p Find your monthly social analytics below. We are here to assist in growing your social media presense as the local online expert, and grow your business too! Log into your account here to view more granular metrics and as always, reach out with any comments or questions! 
+            p(style='font-size: 1.2em') 
+              | Find your monthly social analytics below. We are here to assist in growing your social media presense as the local online expert, and grow your business too! Log into your account 
+              a(href='https://main.d2qx684s53d392.amplifyapp.com') here 
+              | to view more granular metrics and as always, reach out with any comments or questions! 
             br
             p Sicerely, The Agents Automated Team
         tr
@@ -75,7 +92,6 @@ html(lang='en')
                   tr
                     th Top Posts
                     th Post
-                    th Platform
                     th Impressions
                     th Reach
                 tbody
@@ -90,72 +106,88 @@ html(lang='en')
                           | 3rd
                         else if index === 3
                           | 4th
-                      td 100
-                      td Facebook
-                      td #{post.totalEngagement}
+                      td(style='padding: 20px 40px') 
+                          img(src=filterdMediaUrls[index], style="width: 20px; height: 20px;")
                       td #{post.totalImpressions}
+                      td #{post.totalEngagement}
             
         tr
           td(style='text-align: left; padding: 0 80px')
             h3 #{formattedMonthDate} Account Growth! 
         tr
           td(style='padding: 0 80px 80px')
-            table.data-table
-                thead
-                  tr
-                    th #{formattedMonthDate} (month)
-                    th Followers
-                    th Impressions
-                    th Reach
-                    th Engagement Rate
-                tbody
-                  tr
-                    td(style='background-color: #000; color: #fff') FB
-                    td 300
-                    td #{growOfPost.facebook.impressionFacebookGrowth}
-                    td 75
-                    td #{growOfPost.facebook.postCountFacebookGrowth}
-                  tr
-                    td(style='background-color: #000; color: #fff') Instagram
-                    td 100
-                    td #{growOfPost.instagram.impressionInstragrameGrowth}
-                    td 100
-                    td #{growOfPost.instagram.postCountInstragrameGrowth}
-                  tr
-                    td(style='background-color: #000; color: #fff') LinkedIn
-                    td 200
-                    td #{growOfPost.linkdin.impressionLinkdinGrowth}
-                    td 24
-                    td #{growOfPost.linkdin.postCountLinkdinGrowth}
-        tr
-          td(style='text-align: left; padding: 0 80px')
-            h3 [Jan-Dec] Account Growth!      
+            div(style='border-radius: 8px; box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);') 
+              div(style='text-align:left; padding:20px 8px;') 
+                p 
+                  span Insights 
+                  span(style='color: #1A8DFC') #{formattedMonthDate} (month)
+              table.performance-table
+                  thead
+                    tr
+                      th 
+                      th Followers
+                      th Impressions
+                      th Reach
+                      th(style='border-right: none') Engagement Rate
+                  tbody
+                    tr
+                      td(style='text-align:left') 
+                        img(src='https://i.imgur.com/O0Ua0NP.png', alt='Facebook' height='22' width='109')
+                      td #{growOfPost.facebook.followers}(#{growOfPost.facebook.followersGrowth})
+                      td #{growOfPost.facebook.impressions}(#{growOfPost.facebook.impressionsGrowth})
+                      td #{growOfPost.facebook.reach}(#{growOfPost.facebook.reachGrowth})
+                      td(style='border-right: none') #{growOfPost.facebook.engagementRate}
+                    tr
+                      td(style='text-align:left')
+                        img(src='https://i.imgur.com/rj5gmcj.png', alt='Instagram' height='22' width='113')
+                      td #{growOfPost.instagram.followers}(#{growOfPost.instagram.followersGrowth})
+                      td #{growOfPost.instagram.impressions}(#{growOfPost.instagram.impressionsGrowth})
+                      td #{growOfPost.instagram.reach}(#{growOfPost.instagram.reachGrowth})
+                      td(style='border-right: none') #{growOfPost.instagram.engagementRate}
+                    //- tr
+                    //-   td(style='text-align:left')
+                    //-     img(src='https://i.imgur.com/onlOztk.png', alt='LinkedIn' height='22' width='113')
+                    //-   td #{growOfPost.linkedin.followers}(#{growOfPost.linkedin.followersGrowth})
+                    //-   td #{growOfPost.linkedin.impressions}(#{growOfPost.linkedin.impressionsGrowth})
+                    //-   td #{growOfPost.linkedin.reach}(#{growOfPost.linkedin.reachGrowth})
+                    //-   td(style='border-right: none') #{growOfPost.linkedin.engagementRate}
+                  
+
         tr 
           td(style='padding: 20px 40px') 
-            img(src=calendarImageUrl, alt='Account Growth')    
-        tr
-          td(style='text-align: left; padding: 0 80px 40px 80px;')
-            h4 Followers are the people that follow you.   
+            img(src=followersGrowthUrl, alt='Monthly Content Calendar')
+        //- tr 
+        //-   td(style='text-align: left; padding: 0 80px 80px')
+        //-     p Followers are the people that follow you      
         tr 
           td(style='padding: 20px 40px') 
-            img(src=calendarImageUrl, alt='Account Growth')
-        tr
-          td(style='text-align: left; padding: 0 80px 40px 80px;')
-            h4 Impressions: are the number of times your content is viewed.   
-        tr 
-          td(style='padding: 20px 40px') 
-            img(src=calendarImageUrl, alt='Account Growth')      
-        tr
-          td(style='text-align: left; padding: 0 80px 40px 80px;')
-            h4 Followers:   
-        tr 
-          td(style='padding: 20px 40px') 
-            img(src=calendarImageUrl, alt='Account Growth')      
-        tr
-          td(style='text-align: left; padding: 0 80px 40px 80px;')
-            h4 Followers:   
+            img(src=impressionGrowthUrl, alt='Monthly Content Calendar')
         tr 
           td(style='text-align: left; padding: 0 80px 80px')
-            p We believe feedback is a gift! Do you have questions, comments or suggestions? Please reach out to colby@agentsautomated.com !
+            p(style='font-size: 12px') Impressions are the number of times your content is viewed.  
+
+        tr 
+          td(style='padding: 20px 40px') 
+            img(src=reachGrowthUrl, alt='Monthly Content Calendar')
+        tr 
+          td(style='text-align: left; padding: 0 80px 80px')
+            p(style='font-size: 12px')  
+              | Reach 
+              bolt measures the number of unique people that saw your content
+
+        tr 
+          td(style='padding: 20px 40px') 
+            img(src=engagementGrowthUrl, alt='Monthly Content Calendar')
+        //- tr 
+        //-   td(style='text-align: left; padding: 0 80px 80px')
+        //-     p Followers:           
+              
+        tr 
+          td(style='text-align: left; padding: 0 80px 80px; font-size: 1.2em')
+            p(style='font-size: 1.2em') We believe feedback is a gift! If you have questions, comments or suggestions for us, please reach out
             br
-            p -Sicerely, Colby, Founder of Agents Automated Team
+            p(style='font-size: 1.2em') to colby@agentsautomated.com.
+            br
+            p(style='font-size: 1.2em') -Thank you! Colby
+            br
+            p(style='font-size: 1.2em') Founder of Agents Automated Team
