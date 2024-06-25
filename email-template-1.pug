@@ -1,12 +1,15 @@
 doctype html
 html(lang='en')
   head
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet")
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Monthly Content Calendar
+    title Your upcoming months posts!
     style.
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Josefin Sans", sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f2f2f2;
@@ -50,8 +53,8 @@ html(lang='en')
         border-bottom: 1px solid #E4E4E4;
         font-weight: 600;
       }
-  body
-    table(role='presentation', style='background-color: #ffffff; max-width: 800px; margin: 0 auto;')
+  body(style='background-color: #EDEDED;')
+    table(role='presentation', style='background-color: #FFF; max-width: 800px; margin: 0 auto;')
       thead
         tr
           td.header
@@ -59,19 +62,29 @@ html(lang='en')
         tr
           td.header(style='text-align: center; padding: 0 40px 40px')  
             h2 Your upcoming months posts!
-      tbody 
+      tbody
         tr 
-          td(style='text-align: left; padding: 0 40px') Hi Nicola,
+          td(style='text-align: left; padding: 0 40px') 
+            span(style='font-size: 16px') Hi #{name}
+            |,
+        
         tr 
           td.content
-            p Find a calendar with your automated posting schedule for the month! As always, go to your account here to adjust times, captions, or anything else. We are thankful to serve you and your business and reach out with any comments or questions!
+            p(style='font-size: 16px') 
+              | Below is your Agents Automated posting schedule for the month. As always, go to your account  
+              a(href='https://main.d2qx684s53d392.amplifyapp.com') here 
+              | to make any changes to your posts. We are thankful to be a trusted partner!
             br
-            p Sicerely, The Agents Automated Team
+            p(style='font-size: 16px') 
+             | Sincerely, The Agents Automated Team
         tr 
           td(style='padding: 20px 40px') 
             img(src=calendarImageUrl, alt='Monthly Content Calendar')
         tr 
-          td(style='text-align: left; padding:80px')
-            p We believe feedback is a gift! Do you have questions, comments or suggestions? Please reach out to colby@agentsautomated.com !
+          td(style='text-align: left; padding:80px; font-size: 16px')
+            p(style='font-size: 16px') We believe feedback is a gift! If you have questions, comments, or suggestions for us, please reach out
+            p(style='font-size: 16px') to colby@agentsautomated.com
             br
-            p -Sicerely, Colby, Founder of Agents Automated Team
+            p(style='font-size: 16px') -Thank you! Colby
+            br
+            p(style='font-size: 16px') Founder of Agents Automated Team
