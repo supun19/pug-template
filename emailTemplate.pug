@@ -38,18 +38,16 @@ html(lang='en')
         width: 100%; 
         border-radius: 12px;
       }
-      .data-table 
-      th, .data-table td {
+      .data-table th {
+        padding: 16px;
+        border-right: 1px solid #7A8998;
+      }
+      .data-table td {
         padding: 8px;
-      }
-      .data-table th{
-        background-color: #000;
-        color: #fff;
-      }
-      .data-table td{
         font-weight: 600;
+        border-right: 1px solid #7A8998;
       }
-      .performance-table tr{
+      .data-table tr, .performance-table tr{
         border-top: 1px solid #7A8998;
       }
       .performance-table 
@@ -57,7 +55,7 @@ html(lang='en')
         padding: 12px 8px;
         border-right: 1px solid #7A8998;
       }
-      .performance-table td{
+      .data-table td, .performance-table td{
         color: #7A8998;
       }
   body(style='background-color: #EDEDED;')
@@ -87,29 +85,37 @@ html(lang='en')
             h3 #{formattedMonthDate} Top Posts! 
         tr
           td(style='padding: 0 80px 40px')
-            table.data-table
-                thead
-                  tr
-                    th Top Posts
-                    th Post
-                    th Impressions
-                    th Reach
-                tbody
-                  each post,index in impressionCountOfPosts
+            div(style='border-radius: 8px; box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);')
+              table(style='text-align:left; padding:20px 8px;') 
+                tr
+                  td(style='text-align:left; padding:20px 8px;')  
+                    span Top Posts 
+                    span(style='color: #1A8DFC;padding-left: 16px') #{formattedMonthDate}
+                  td(style='text-align:right; padding:20px 8px;') 
+                    div(style='border: 1px solid #7A8998; border-radius: 8px; padding: 8px; color: #7A8998; text-align: left') 2024-06
+              table.data-table
+                  thead
                     tr
-                      td 
-                        if index === 0
-                          | 1st
-                        else if index === 1
-                          | 2nd
-                        else if index === 2
-                          | 3rd
-                        else if index === 3
-                          | 4th
-                      td(style='padding: 20px 40px') 
-                          img(src=filterdMediaUrls[index], style="width: 20px; height: 20px;")
-                      td #{post.totalImpressions}
-                      td #{post.totalEngagement}
+                      th Top Posts
+                      th Post
+                      th Impressions
+                      th(style='border-right: none') Reach
+                  tbody
+                    each post,index in impressionCountOfPosts
+                      tr
+                        td 
+                          if index === 0
+                            | 1st
+                          else if index === 1
+                            | 2nd
+                          else if index === 2
+                            | 3rd
+                          else if index === 3
+                            | 4th
+                        td(style='padding: 20px 40px') 
+                            img(src=filterdMediaUrls[index], style="width: 20px; height: 20px;")
+                        td #{post.totalImpressions}
+                        td(style='border-right: none') #{post.totalEngagement}
             
         tr
           td(style='text-align: left; padding: 0 80px')
